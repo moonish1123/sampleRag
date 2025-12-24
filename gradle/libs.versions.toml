@@ -1,0 +1,19 @@
+
+### version 네이밍은 lower camel case, libraries 네이밍은 snake case 로 해서 네이밍만 보고 구별 가능하게 합니다.
+[versions]
+#gradle 에서도 같이 버전을 바꿔야 한다.
+gradleVersion = "8.7.3"
+googleServicesVersion = "4.4.2"
+firebaseCrashlyticsGradleVersion = "3.0.2"
+firebasePerfPlugInVersion = "1.4.2"
+kotlinVersion = "1.9.21" #composerCompiler와 버전 호환시켜야 함 #https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+composerCompiler = "1.5.7" #build.gradle(app) 에서 사용 #https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+downloadPluginVersion = "5.3.0" #
+
+[libraries]
+gradle = { module = "com.android.tools.build:gradle", version.ref = "gradleVersion" }
+google_service = { module = "com.google.gms:google-services", version.ref = "googleServicesVersion" }
+firebase_crashlytics_gradle = { module = "com.google.firebase:firebase-crashlytics-gradle", version.ref = "firebaseCrashlyticsGradleVersion" }
+firebase_perf_plugin = { module = "com.google.firebase:perf-plugin", version.ref = "firebasePerfPlugInVersion" }
+kotlin_gradle_plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlinVersion" }
+download_plugin = { module = "de.undercouch:gradle-download-task", version.ref = "downloadPluginVersion" }

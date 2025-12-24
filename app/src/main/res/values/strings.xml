@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Sample RAG</string>
+    <string name="openai_api_key">OPENAI_API_KEY</string>
+    <string name="pinecone_api_key">PINECONE_API_KEY</string>
+    <string name="faiss_test_description">Run the built-in FAISS smoke test to make sure the JNI bridge and native binaries load correctly. This keeps the sample focused on verifying the native build before wiring the rest of the RAG flow.</string>
+    <string name="faiss_run_button">Run FAISS Smoke Test</string>
+    <string name="faiss_result_placeholder">Tap the button to initialize FAISS, insert sample vectors, and query neighbors.</string>
+    <string name="faiss_running_message">Running FAISS smoke test...</string>
+</resources>
