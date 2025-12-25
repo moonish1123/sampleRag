@@ -16,3 +16,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "sample_rag"
 include(":app")
+include(":library:network")
+include(":library:faissNative")
+include(":library:vectorStore")
+include(":library:llm")
+include(":library:embedding")
+include(":library:splitter")

@@ -6,10 +6,20 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.cancel
+import org.koin.android.ext.koin.androidContext
+import org.koin.android.ext.koin.androidLogger
+import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 import pe.brice.rag.account.Account
 import pe.brice.rag.account.AccountManager
 import pe.brice.rag.data.SampleDataInitializer
 import pe.brice.rag.legacy.util.LogUtils
+import pe.brice.rag.library.embedding.di.embeddingModule
+import pe.brice.rag.library.faissNative.di.faissNativeModule
+import pe.brice.rag.library.llm.di.llmModule
+import pe.brice.rag.library.network.di.networkModule
+import pe.brice.rag.library.splitter.di.splitterModule
+import pe.brice.rag.library.vectorStore.di.vectorStoreModule
 
 class RagApplication : Application() {
 
@@ -27,6 +37,20 @@ class RagApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
+
+        // Initialize Koin DI with all modules
+        startKoin {
+            androidLogger(Level.ERROR)
+            androidContext(this@RagApplication)
+            modules(
+                networkModule,
+                faissNativeModule,
+                vectorStoreModule,
+                llmModule,
+                embeddingModule,
+                splitterModule
+            )
+        }
 
         // Initialize sample data initializer
         sampleDataInitializer = SampleDataInitializer(this)

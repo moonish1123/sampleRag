@@ -89,11 +89,23 @@ dependencies {
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("com.google.mediapipe:tasks-text:0.10.21")
 
-    implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.12.0"))
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
+    // Retrofit & OkHttp for app's legacy code
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+    // Project modules
+    implementation(project(":library:network"))
+    implementation(project(":library:faissNative"))
+    implementation(project(":library:vectorStore"))
+    implementation(project(":library:llm"))
+    implementation(project(":library:embedding"))
+    implementation(project(":library:splitter"))
+
+    // Koin for DI
+    implementation("io.insert-koin:koin-android:3.5.6")
+    implementation("io.insert-koin:koin-core:3.5.6")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
